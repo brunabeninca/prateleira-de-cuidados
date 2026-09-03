@@ -4,4 +4,4 @@ Catálogo pessoal de dicas de produtos, procedimentos e rotinas de cabelo e skin
 
 Feito pra consultar antes de decidir o que comprar.
 
-🔗 Site: _(link do GitHub Pages aparece aqui depois de publicado)_
+🔗 Site: https://brunabeninca.github.io/prateleira-de-cuidados/
