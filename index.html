@@ -363,8 +363,9 @@
     padding: 16px 16px 14px 18px;
     box-shadow: var(--shadow);
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
   }
   .card::before{
     content: "";
@@ -376,6 +377,35 @@
   }
   .card.favorito{
     box-shadow: var(--shadow), 0 0 0 1px var(--accent-fav);
+  }
+  .card-media{
+    flex-shrink: 0;
+    width: 56px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-2);
+  }
+  .card-media img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-media-placeholder{
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    background: repeating-linear-gradient(135deg, var(--surface-2) 0 8px, var(--surface) 8px 16px);
+  }
+  .card-media-placeholder svg{ width: 18px; height: 18px; opacity: 0.55; }
+  .card-content{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .card-top{
     display: flex;
@@ -737,7 +767,7 @@
     {
       id: "cabelo-secador-parlux",
       nome: "Secador Parlux",
-      area: "cabelo", categoria: "produto", status: "quero-comprar", favorito: false,
+      area: "cabelo", categoria: "produto", status: "quero-comprar", favorito: false, img: null,
       tipoProduto: "Equipamento", marca: "Parlux",
       finalidades: ["secagem", "styling"],
       fonte: "Story Instagram — indicação de secador",
@@ -746,7 +776,7 @@
     {
       id: "cabelo-penetraitt-sebastian",
       nome: "Penetraitt (Sebastian)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Sebastian",
       finalidades: ["reconstrução", "fios quebradiços"],
       fonte: "Print salvo — cronograma capilar, 1º mês / #minhadicasebastian",
@@ -755,7 +785,7 @@
     {
       id: "cabelo-fusion-wella",
       nome: "Fusion (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["reconstrução", "fios quebradiços"],
       fonte: "Print salvo — cronograma capilar, 1º mês",
@@ -764,7 +794,7 @@
     {
       id: "cabelo-sp-luxe-oil-wella",
       nome: "SP Luxe Oil (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Wella",
       finalidades: ["reconstrução", "proteção solar/cloro"],
       fonte: "Print salvo — cronograma capilar / dicas de proteção",
@@ -773,7 +803,7 @@
     {
       id: "cabelo-invigo-nutri-enrich-wella",
       nome: "Invigo Nutri Enrich (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["nutrição"],
       fonte: "Print salvo — cronograma capilar, 2º mês",
@@ -782,7 +812,7 @@
     {
       id: "cabelo-hydre-sebastian",
       nome: "Hydre (Sebastian)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Sebastian",
       finalidades: ["nutrição", "hidratação"],
       fonte: "Print salvo — cronograma capilar, 2º mês",
@@ -791,7 +821,7 @@
     {
       id: "cabelo-invigo-brilliance-wella",
       nome: "Invigo Brilliance (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["brilho", "hidratação"],
       fonte: "Print salvo — cronograma capilar, 3º mês",
@@ -800,7 +830,7 @@
     {
       id: "cabelo-invigo-blonde-recharge-wella",
       nome: "Invigo Blonde Recharge (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["brilho", "matização loira"],
       fonte: "Print salvo — cronograma capilar, 3º mês",
@@ -809,7 +839,7 @@
     {
       id: "cabelo-triliance-sebastian",
       nome: "Triliance (Sebastian)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Sebastian",
       finalidades: ["brilho", "hidratação"],
       fonte: "Print salvo — cronograma capilar, 3º mês",
@@ -818,7 +848,7 @@
     {
       id: "cabelo-oil-reflection-wella",
       nome: "Oil Reflection (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["brilho", "hidratação"],
       fonte: "Print salvo — cronograma capilar, 3º mês",
@@ -827,7 +857,7 @@
     {
       id: "cabelo-volupt-sebastian",
       nome: "Volupt (Sebastian)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Sebastian",
       finalidades: ["volume"],
       fonte: "Print salvo — dicas de cuidado",
@@ -836,7 +866,7 @@
     {
       id: "cabelo-volume-boost-wella",
       nome: "Volume Boost (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Wella",
       finalidades: ["volume"],
       fonte: "Print salvo — dicas de cuidado",
@@ -845,7 +875,7 @@
     {
       id: "cabelo-acqua-pure-wella",
       nome: "Acqua Pure (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Wella",
       finalidades: ["couro cabeludo"],
       fonte: "Print salvo — dicas de cuidado",
@@ -854,7 +884,7 @@
     {
       id: "cabelo-nioxin",
       nome: "Nioxin",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Nioxin",
       finalidades: ["couro cabeludo", "queda", "fios finos"],
       fonte: "Print salvo — dicas de cuidado",
@@ -863,7 +893,7 @@
     {
       id: "cabelo-anti-shock",
       nome: "Anti Shock",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Spray", marca: null,
       finalidades: ["proteção solar/cloro"],
       fonte: "Print salvo — indicação de cliente",
@@ -872,7 +902,7 @@
     {
       id: "cabelo-solar-sublime-spray-mascara",
       nome: "Solar Sublime (spray + máscara)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "L'Oréal Professionnel",
       finalidades: ["proteção solar/cloro", "manutenção de cor"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -881,7 +911,7 @@
     {
       id: "cabelo-absolut-repair-nutrifier-shampoo-e-mascara",
       nome: "Absolut Repair + Nutrifier (shampoo e máscara)",
-      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false, img: null,
       tipoProduto: null, marca: null,
       finalidades: ["reparação pós-cloro", "hidratação"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -890,7 +920,7 @@
     {
       id: "cabelo-smartbond-passo-2",
       nome: "SmartBond passo 2",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Tratamento", marca: "L'Oréal Professionnel",
       finalidades: ["proteção química", "reconstrução"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -899,7 +929,7 @@
     {
       id: "cabelo-blond-studio-l-oreal",
       nome: "Blond Studio (L'Oréal)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Descolorante", marca: "L'Oréal Professionnel",
       finalidades: ["descoloração"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -908,7 +938,7 @@
     {
       id: "cabelo-richesse-dialight",
       nome: "Richesse / Dialight",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Tonalizante", marca: "L'Oréal Professionnel",
       finalidades: ["coloração", "tonalizante"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -917,7 +947,7 @@
     {
       id: "cabelo-colorful-hair",
       nome: "Colorful Hair",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Tinta", marca: "L'Oréal Professionnel",
       finalidades: ["cor fantasia"],
       fonte: "Comentário Instagram — @dear_bella",
@@ -926,7 +956,7 @@
     {
       id: "cabelo-bc-bonacure-ph-4-5-color-freeze-schwarzkopf",
       nome: "BC Bonacure pH 4.5 Color Freeze (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Leave-in/Spray", marca: "Schwarzkopf",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — @allyka_hair_color",
@@ -935,7 +965,7 @@
     {
       id: "cabelo-dream-cream-lola-cosmetics",
       nome: "Dream Cream (Lola Cosmetics)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Lola Cosmetics",
       finalidades: ["hidratação intensa"],
       fonte: "Story Instagram — @allyka_hair_color / @daniestavaringo",
@@ -944,7 +974,7 @@
     {
       id: "cabelo-elseve-reparacao-total-5-light-poo-tudo-em-1-l-ore",
       nome: "Elseve Reparação Total 5 — Light-Poo Tudo em 1 (L'Oréal)",
-      area: "cabelo", categoria: "produto", status: "quero-comprar", favorito: false,
+      area: "cabelo", categoria: "produto", status: "quero-comprar", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "L'Oréal",
       finalidades: ["cabelo danificado", "cabelo colorido"],
       fonte: "Story Instagram — indicação de @xpaulabarbosax via karinamignoni",
@@ -953,7 +983,7 @@
     {
       id: "cabelo-ogx-coconut-milk-shampoo-condicionador",
       nome: "OGX Coconut Milk (shampoo + condicionador)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "OGX",
       finalidades: ["hidratação", "nutrição", "custo-benefício"],
       fonte: "Story Instagram — indicação de shampoo em conta",
@@ -962,7 +992,7 @@
     {
       id: "cabelo-kamaleao-mascara-com-pigmento",
       nome: "Kamaleao (máscara com pigmento)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Tonalizante", marca: "Kamaleão Color",
       finalidades: ["manutenção de cor"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -971,7 +1001,7 @@
     {
       id: "cabelo-cronograma-capilar-o-que-cada-etapa-faz",
       nome: "Cronograma capilar (o que cada etapa faz)",
-      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false, img: null,
       tipoProduto: null, marca: null,
       finalidades: ["hidratação", "nutrição", "reconstrução"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -980,7 +1010,7 @@
     {
       id: "cabelo-caviar-color-shampoo-k-pro",
       nome: "Caviar Color Shampoo (K.Pro)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "K.Pro",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -989,7 +1019,7 @@
     {
       id: "cabelo-shampoo-sem-sulfato-tonalizante-semanal",
       nome: "Shampoo sem sulfato + tonalizante semanal",
-      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false, img: null,
       tipoProduto: null, marca: null,
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — @daniestavaringo",
@@ -998,7 +1028,7 @@
     {
       id: "cabelo-blond-studio-po-oxidante-l-oreal-professionnel",
       nome: "Blond Studio (pó + oxidante) — L'Oréal Professionnel",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Descolorante", marca: "L'Oréal Professionnel",
       finalidades: ["descoloração"],
       fonte: "Print salvo — armário de produtos profissionais / Circus Hair Augusta",
@@ -1007,7 +1037,7 @@
     {
       id: "cabelo-vitamino-color-a-ox-serie-expert-l-oreal-professio",
       nome: "Vitamino Color A-OX (Série Expert, L'Oréal Professionnel)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "L'Oréal Professionnel",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Print salvo — armário de produtos profissionais",
@@ -1016,7 +1046,7 @@
     {
       id: "cabelo-kit-de-styling-pli-super-dust-beach-waves-ring-lig",
       nome: "Kit de styling (Pli, Super Dust, Beach Waves, Ring Light)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: null,
       finalidades: ["styling", "brilho", "textura"],
       fonte: "Post Instagram — @dear_bella (styling em cabelo de @wtfevie)",
@@ -1025,7 +1055,7 @@
     {
       id: "cabelo-all-soft-redken",
       nome: "All Soft (Redken)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Redken",
       finalidades: ["hidratação"],
       fonte: "Story Instagram — @daniestavaringo",
@@ -1034,7 +1064,7 @@
     {
       id: "cabelo-caviar-intense-hair-masque-k-pro",
       nome: "Caviar Intense Hair Masque (K.Pro)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "K.Pro",
       finalidades: ["reconstrução", "nutrição", "porosidade"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -1043,7 +1073,7 @@
     {
       id: "cabelo-amend-po-descolorante-vermelho",
       nome: "Amend (pó descolorante, vermelho)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Descolorante", marca: "Amend",
       finalidades: ["descoloração"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -1052,7 +1082,7 @@
     {
       id: "cabelo-kit-sos-para-cabelo-poroso-nutrifier-caviar-intens",
       nome: "Kit SOS para cabelo poroso (Nutrifier + Caviar Intense)",
-      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "dica", status: "avaliando", favorito: false, img: null,
       tipoProduto: null, marca: null,
       finalidades: ["reconstrução", "porosidade"],
       fonte: "Story Instagram — Q&A sobre cabelo colorido",
@@ -1061,7 +1091,7 @@
     {
       id: "cabelo-truss-curly-light",
       nome: "Truss Curly Light",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Leave-in/Spray", marca: "Truss",
       finalidades: ["cachos", "hidratação"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1070,7 +1100,7 @@
     {
       id: "cabelo-sol-do-rio-re-charge-protein-cadiveu",
       nome: "Sol do Rio Re-Charge Protein (Cadiveu)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Cadiveu",
       finalidades: ["reconstrução", "proteção química"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1079,7 +1109,7 @@
     {
       id: "cabelo-e-blast-jamaican-mango-lime",
       nome: "E-Blast (Jamaican Mango & Lime)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Jamaican Mango & Lime",
       finalidades: ["couro cabeludo", "hidratação"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1088,7 +1118,7 @@
     {
       id: "cabelo-be-m-dita-ghee-nutricao-lola-cosmetics",
       nome: "Be(m)dita Ghee — Nutrição (Lola Cosmetics)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Lola Cosmetics",
       finalidades: ["nutrição"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1097,7 +1127,7 @@
     {
       id: "cabelo-absolut-repair-l-oreal-professionnel",
       nome: "Absolut Repair (L'Oréal Professionnel)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "L'Oréal Professionnel",
       finalidades: ["reconstrução", "cabelo danificado"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1106,7 +1136,7 @@
     {
       id: "cabelo-nutrifier-l-oreal-professionnel-manutencao-semanal",
       nome: "Nutrifier (L'Oréal Professionnel) — manutenção semanal",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "L'Oréal Professionnel",
       finalidades: ["nutrição", "manutenção de cor"],
       fonte: "Story Instagram — rotina de cuidados com cabelo",
@@ -1115,7 +1145,7 @@
     {
       id: "cabelo-morte-subita-lola-cosmetics",
       nome: "Morte Súbita (Lola Cosmetics)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Lola Cosmetics",
       finalidades: ["nutrição", "hidratação"],
       fonte: "Story Instagram — recomendação de máscara barata e potente",
@@ -1124,7 +1154,7 @@
     {
       id: "cabelo-redken-color-extend-magnetics",
       nome: "Redken Color Extend Magnetics",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Redken",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — @dear_bella (via Shine de gabrielapugliesi) / print de rotina",
@@ -1133,7 +1163,7 @@
     {
       id: "cabelo-vitamino-color-resveratrol-serie-expert-l-oreal-pr",
       nome: "Vitamino Color Resveratrol (Série Expert, L'Oréal Professionnel)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "L'Oréal Professionnel",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — @dear_bella (@lorealprobr)",
@@ -1142,7 +1172,7 @@
     {
       id: "cabelo-sebastian-dark-oil",
       nome: "Sebastian Dark Oil",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Sebastian",
       finalidades: ["brilho", "styling"],
       fonte: "Story Instagram — @alineoliveira_ (#minhadicasebastian, @sebastianprobrasil)",
@@ -1151,7 +1181,7 @@
     {
       id: "cabelo-acai-oil-mascara-cadiveu",
       nome: "Açaí Oil — máscara (Cadiveu)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Cadiveu",
       finalidades: ["hidratação"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de hidratação)",
@@ -1160,7 +1190,7 @@
     {
       id: "cabelo-prime-mask-k-pro",
       nome: "Prime Mask (K.Pro)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "K.Pro",
       finalidades: ["hidratação"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de hidratação)",
@@ -1169,7 +1199,7 @@
     {
       id: "cabelo-elements-renewing-wella",
       nome: "Elements Renewing (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Wella",
       finalidades: ["hidratação"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de hidratação)",
@@ -1178,7 +1208,7 @@
     {
       id: "cabelo-bonacure-hyaluronic-moisture-kick-schwarzkopf",
       nome: "Bonacure Hyaluronic Moisture Kick (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Schwarzkopf",
       finalidades: ["hidratação"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de hidratação)",
@@ -1187,7 +1217,7 @@
     {
       id: "cabelo-rigen-milk-protein-plus-alfaparf",
       nome: "Rigen Milk Protein Plus (Alfaparf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Alfaparf",
       finalidades: ["nutrição"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de nutrição)",
@@ -1196,7 +1226,7 @@
     {
       id: "cabelo-hair-remedy-cadiveu",
       nome: "Hair Remedy (Cadiveu)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Cadiveu",
       finalidades: ["nutrição"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de nutrição)",
@@ -1205,7 +1235,7 @@
     {
       id: "cabelo-nutricao-amend",
       nome: "Nutrição (Amend)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Amend",
       finalidades: ["nutrição"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de nutrição)",
@@ -1214,7 +1244,7 @@
     {
       id: "cabelo-oil-miracle-barbary-fig-bonacure",
       nome: "Oil Miracle Barbary Fig (Bonacure)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Schwarzkopf",
       finalidades: ["nutrição"],
       fonte: "Story Instagram — @daniestavaringo (lista de máscaras de nutrição)",
@@ -1223,7 +1253,7 @@
     {
       id: "cabelo-acai-oil-oleo-cadiveu",
       nome: "Açaí Oil — óleo (Cadiveu)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Cadiveu",
       finalidades: ["brilho"],
       fonte: "Story Instagram — @daniestavaringo (lista de óleos reparadores)",
@@ -1232,7 +1262,7 @@
     {
       id: "cabelo-millenar-oil-inchi-amend",
       nome: "Millenar Oil Inchi (Amend)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Amend",
       finalidades: ["brilho"],
       fonte: "Story Instagram — @daniestavaringo (lista de óleos reparadores)",
@@ -1241,7 +1271,7 @@
     {
       id: "cabelo-oil-reflections-oleo-finalizador-wella",
       nome: "Oil Reflections — óleo finalizador (Wella)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Wella",
       finalidades: ["brilho"],
       fonte: "Story Instagram — @daniestavaringo (lista de óleos reparadores)",
@@ -1250,7 +1280,7 @@
     {
       id: "cabelo-mythic-oil-l-oreal",
       nome: "Mythic Oil (L'Oréal)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "L'Oréal Professionnel",
       finalidades: ["brilho"],
       fonte: "Story Instagram — @daniestavaringo (lista de óleos reparadores)",
@@ -1259,7 +1289,7 @@
     {
       id: "cabelo-elixir-ultime-originale-kerastase",
       nome: "Elixir Ultime Originale (Kérastase)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Óleo", marca: "Kérastase",
       finalidades: ["brilho"],
       fonte: "Story Instagram — @daniestavaringo (lista de óleos reparadores)",
@@ -1268,7 +1298,7 @@
     {
       id: "cabelo-sebastian-styling-potion-9-curl-magnifier-whipped-",
       nome: "Sebastian Styling (Potion 9, Curl Magnifier, Whipped Crème, Sublimate)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Sebastian",
       finalidades: ["styling", "brilho"],
       fonte: "Post Instagram — @sebastianprobrasil ('tratamento por meio do styling')",
@@ -1277,7 +1307,7 @@
     {
       id: "cabelo-bc-bonacure-ph-4-5-color-freeze-treatment-schwarzk",
       nome: "BC Bonacure pH 4.5 Color Freeze — Treatment (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Schwarzkopf",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Story Instagram — @schwarzkopfbr ('uso, amo, recomendo')",
@@ -1286,7 +1316,7 @@
     {
       id: "cabelo-bc-bonacure-ph-4-5-color-freeze-shampoo-condiciona",
       nome: "BC Bonacure pH 4.5 Color Freeze — Shampoo + Condicionador (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Schwarzkopf",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Print salvo — comparativo de shampoos pra cabelo colorido",
@@ -1295,7 +1325,7 @@
     {
       id: "cabelo-bc-bonacure-peptide-repair-rescue-schwarzkopf",
       nome: "BC Bonacure Peptide Repair Rescue (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Schwarzkopf",
       finalidades: ["reconstrução", "fios quebradiços"],
       fonte: "Print salvo — cronogramas capilares (comparativo de marcas)",
@@ -1304,7 +1334,7 @@
     {
       id: "cabelo-bc-bonacure-keratin-smooth-perfect-schwarzkopf",
       nome: "BC Bonacure Keratin Smooth Perfect (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Schwarzkopf",
       finalidades: ["reconstrução", "fios quebradiços"],
       fonte: "Print salvo — cronogramas capilares (comparativo de marcas)",
@@ -1313,7 +1343,7 @@
     {
       id: "cabelo-majirel-cool-infused-oxydante-creme-l-oreal-profes",
       nome: "Majirel Cool Infused + Oxydante Creme (L'Oréal Professionnel)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Tinta", marca: "L'Oréal Professionnel",
       finalidades: ["coloração", "tonalizante"],
       fonte: "Print salvo — Circus Hair Augusta (salão)",
@@ -1322,7 +1352,7 @@
     {
       id: "cabelo-truss-color-shampoo-condicionador",
       nome: "Truss Color — shampoo + condicionador",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Truss",
       finalidades: ["manutenção de cor", "cabelo colorido"],
       fonte: "Print salvo — comparativo de shampoos pra cabelo colorido",
@@ -1331,7 +1361,7 @@
     {
       id: "cabelo-inoar-sensitine-tres-em-um",
       nome: "Inoar Sensitine Três em Um",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "Inoar",
       finalidades: ["limpeza", "couro cabeludo"],
       fonte: "Print salvo — comparativo de shampoos pra cabelo colorido",
@@ -1340,7 +1370,7 @@
     {
       id: "cabelo-redken-extreme-strength-builder-plus",
       nome: "Redken Extreme Strength Builder Plus",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Redken",
       finalidades: ["reconstrução", "fios quebradiços"],
       fonte: "Print salvo — comparativo de máscaras de reconstrução",
@@ -1349,7 +1379,7 @@
     {
       id: "cabelo-truss-net-mask",
       nome: "Truss Net Mask",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Truss",
       finalidades: ["reconstrução", "hidratação"],
       fonte: "Print salvo — comparativo de máscaras de reconstrução",
@@ -1358,7 +1388,7 @@
     {
       id: "cabelo-truss-miracle-mascara",
       nome: "Truss Miracle (máscara)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Truss",
       finalidades: ["reconstrução", "brilho"],
       fonte: "Print salvo — comparativo de máscaras de reconstrução",
@@ -1367,7 +1397,7 @@
     {
       id: "cabelo-joico-k-pak-intense-hydrator",
       nome: "Joico K-Pak Intense Hydrator",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Joico",
       finalidades: ["hidratação", "cabelo danificado"],
       fonte: "Print salvo — comparativo de máscaras de hidratação/nutrição",
@@ -1376,7 +1406,7 @@
     {
       id: "cabelo-inoar-go-vegan-mascara-de-coco",
       nome: "Inoar Go Vegan (máscara de coco)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "Inoar",
       finalidades: ["hidratação", "nutrição"],
       fonte: "Print salvo — comparativo de máscaras de hidratação/nutrição",
@@ -1385,7 +1415,7 @@
     {
       id: "cabelo-redken-pillow-proof",
       nome: "Redken Pillow Proof",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Spray", marca: "Redken",
       finalidades: ["secagem", "styling"],
       fonte: "Print salvo — comparativo de protetores térmicos",
@@ -1394,7 +1424,7 @@
     {
       id: "cabelo-nutrifier-creme-termo-protetor-serie-expert",
       nome: "Nutrifier — creme termo protetor (Série Expert)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Protetor térmico", marca: "L'Oréal Professionnel",
       finalidades: ["secagem", "nutrição"],
       fonte: "Print salvo — comparativo de protetores térmicos",
@@ -1403,7 +1433,7 @@
     {
       id: "cabelo-osis-blow-go-schwarzkopf",
       nome: "OSiS+ Blow & Go (Schwarzkopf)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Protetor térmico", marca: "Schwarzkopf",
       finalidades: ["secagem", "styling"],
       fonte: "Print salvo — comparativo de protetores térmicos",
@@ -1412,7 +1442,7 @@
     {
       id: "cabelo-comigo-ninguem-pode-spray-bff-lola",
       nome: "Comigo Ninguém Pode — Spray BFF (Lola)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Protetor térmico", marca: "Lola Cosmetics",
       finalidades: ["secagem", "styling"],
       fonte: "Print salvo — comparativo de protetores térmicos",
@@ -1421,7 +1451,7 @@
     {
       id: "cabelo-straight-hair-k-pro",
       nome: "Straight Hair (K.Pro)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Protetor térmico", marca: "K.Pro",
       finalidades: ["secagem", "proteção solar/cloro"],
       fonte: "Print salvo — comparativo de protetores térmicos",
@@ -1430,7 +1460,7 @@
     {
       id: "cabelo-ph-balancer-acidificante-k-pro",
       nome: "pH Balancer — Acidificante (K.Pro)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Acidificante", marca: "K.Pro",
       finalidades: ["reconstrução", "hidratação"],
       fonte: "Print salvo — dica de técnica de aplicação",
@@ -1439,7 +1469,7 @@
     {
       id: "cabelo-k-pro-deep-reconstrutor",
       nome: "K.Pro Deep (Reconstrutor)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Máscara", marca: "K.Pro",
       finalidades: ["reconstrução"],
       fonte: "Print salvo — cronogramas capilares (comparativo de marcas)",
@@ -1448,7 +1478,7 @@
     {
       id: "cabelo-redken-megamask-extreme-all-soft-color-extend-magn",
       nome: "Redken MegaMask (Extreme / All Soft / Color Extend Magnetics)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "Redken",
       finalidades: ["reconstrução", "hidratação", "manutenção de cor"],
       fonte: "Print salvo — cronogramas capilares (comparativo de marcas)",
@@ -1457,7 +1487,7 @@
     {
       id: "cabelo-l-anza-healing-style-molding-paste-air-paste-fiber",
       nome: "L'Anza Healing Style (Molding Paste, Air Paste, Fiber Cream)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Kit/Linha", marca: "L'Anza",
       finalidades: ["styling"],
       fonte: "Story Instagram — indicação de @peluquerianacional e @kendyhair (@lanzabrasil)",
@@ -1466,7 +1496,7 @@
     {
       id: "cabelo-top-6-shampoos-roxos-matizacao-loira",
       nome: "Top 6 shampoos roxos (matização loira)",
-      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false,
+      area: "cabelo", categoria: "produto", status: "avaliando", favorito: false, img: null,
       tipoProduto: "Shampoo", marca: "Várias marcas",
       finalidades: ["matização loira"],
       fonte: "Post Instagram — @jackmartincolorist (colorista, conteúdo em inglês)",
@@ -1475,7 +1505,7 @@
     {
       id: "skincare-sabonete-facial-neo-quimica",
       nome: "Sabonete facial (Neo Química)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["limpeza"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@neoformula)",
       notas: "Primeiro passo da rotina indicada pela dermato — sabonete de limpeza facial."
@@ -1483,7 +1513,7 @@
     {
       id: "skincare-effaclar-agua-micelar-ultra-la-roche-posay",
       nome: "Effaclar Água Micelar Ultra (La Roche-Posay)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["limpeza"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@larocheposaybr)",
       notas: "Água micelar pra remover resíduos/maquiagem, indicada pela dermato."
@@ -1491,7 +1521,7 @@
     {
       id: "skincare-eau-thermale-vichy",
       nome: "Eau Thermale (Vichy)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["calmante", "hidratação"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@vichybrasil)",
       notas: "Água termal em spray pra acalmar e preparar a pele antes dos ativos."
@@ -1499,7 +1529,7 @@
     {
       id: "skincare-serum-10-skinceuticals-vitamina-c",
       nome: "Serum 10 (SkinCeuticals — vitamina C)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["antioxidante", "manchas"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@skinceuticalsbrasil)",
       notas: "Sérum de vitamina C, uso pela manhã, antes do protetor solar."
@@ -1507,7 +1537,7 @@
     {
       id: "skincare-hidratante-vichy",
       nome: "Hidratante (Vichy)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@vichybrasil)",
       notas: "Hidratante da linha Vichy indicado pela dermato (o nome exato do produto não deu pra ler no print — perguntar se tiver dúvida na hora de comprar)."
@@ -1515,7 +1545,7 @@
     {
       id: "skincare-fotoprotector-fusion-water-oil-control-fps-50-isdi",
       nome: "Fotoprotector Fusion Water Oil Control FPS 50+ (ISDIN)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["proteção solar/cloro", "oleosidade"],
       fonte: "Story Instagram — indicação de dermato @dramarianasartorelli (@isdin.brasil)",
       notas: "Protetor solar toque seco, controla oleosidade — última etapa da rotina indicada pela dermato."
@@ -1523,7 +1553,7 @@
     {
       id: "skincare-it-s-skin-collagen-toner",
       nome: "It's Skin Collagen — Toner",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Toner da linha Collagen Nutrition, primeiro passo dessa rotina k-beauty."
@@ -1531,7 +1561,7 @@
     {
       id: "skincare-it-s-skin-collagen-serum",
       nome: "It's Skin Collagen — Serum",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação", "anti-idade"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Sérum da linha Collagen Nutrition."
@@ -1539,7 +1569,7 @@
     {
       id: "skincare-ultimune-eye-shiseido",
       nome: "Ultimune Eye (Shiseido)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["anti-idade", "olhos"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Creme pra região dos olhos, dentro dessa rotina k-beauty."
@@ -1547,7 +1577,7 @@
     {
       id: "skincare-it-s-skin-collagen-emulsion",
       nome: "It's Skin Collagen — Emulsion",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Emulsão (hidratante leve) da linha Collagen Nutrition."
@@ -1555,7 +1585,7 @@
     {
       id: "skincare-it-s-skin-collagen-creme",
       nome: "It's Skin Collagen — Creme",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação", "anti-idade"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Creme facial, etapa final da rotina antes do lip balm."
@@ -1563,7 +1593,7 @@
     {
       id: "skincare-carmex-lip-balm",
       nome: "Carmex (lip balm)",
-      area: "skincare", categoria: "produto", status: "avaliando", favorito: false,
+      area: "skincare", categoria: "produto", status: "avaliando", favorito: false, img: null,
       finalidades: ["hidratação"],
       fonte: "Story Instagram — rotina k-beauty",
       notas: "Balm pros lábios, último passo dessa rotina k-beauty."
@@ -1659,20 +1689,25 @@
     const filtersClear = section.querySelector(".filters-clear");
     const accentVar = area === "cabelo" ? "var(--accent-hair)" : "var(--accent-skin)";
 
-    // finalidade: multi-select, chips gerados a partir dos dados
-    const finalidadeSet = Array.from(new Set(items.flatMap(d => d.finalidades))).sort((a, b) => a.localeCompare(b, 'pt-BR'));
-    finalidadeSet.forEach(f => {
-      const btn = document.createElement("button");
-      btn.className = "chip";
-      btn.dataset.value = f;
-      btn.textContent = f;
-      btn.addEventListener("click", () => {
-        if (state.finalidades.has(f)) { state.finalidades.delete(f); btn.classList.remove("active"); }
-        else { state.finalidades.add(f); btn.classList.add("active"); }
-        render();
+    // finalidade: multi-select, mas as opções mostradas dependem dos outros filtros ativos
+    // (categoria/status/tipo de produto/marca/busca) — reconstruídas a cada render().
+    function rebuildFinalidadeChips() {
+      const available = new Set(items.filter(matchesExceptFinalidade).flatMap(d => d.finalidades));
+      Array.from(state.finalidades).forEach(f => { if (!available.has(f)) state.finalidades.delete(f); });
+      const sorted = Array.from(available).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+      finalidadeWrap.querySelectorAll(".chip").forEach(el => el.remove());
+      sorted.forEach(f => {
+        const btn = document.createElement("button");
+        btn.className = "chip" + (state.finalidades.has(f) ? " active" : "");
+        btn.dataset.value = f;
+        btn.textContent = f;
+        btn.addEventListener("click", () => {
+          if (state.finalidades.has(f)) { state.finalidades.delete(f); } else { state.finalidades.add(f); }
+          render();
+        });
+        finalidadeWrap.appendChild(btn);
       });
-      finalidadeWrap.appendChild(btn);
-    });
+    }
 
     // single-select fixo (categoria, status): wireia os chips já existentes no HTML
     function wireFixedGroup(key) {
@@ -1769,17 +1804,24 @@
       return n;
     }
 
-    function matches(item) {
+    // matchesExceptFinalidade: usada pra saber quais finalidades ainda fazem sentido
+    // mostrar, dado tudo o que já está filtrado (menos a própria finalidade).
+    function matchesExceptFinalidade(item) {
       if (state.onlyFavoritos && !effectiveFavorito(item)) return false;
       if (state.categoria !== "all" && item.categoria !== state.categoria) return false;
       if (state.status !== "all" && effectiveStatus(item) !== state.status) return false;
       if (state.tipoProduto !== "all" && item.tipoProduto !== state.tipoProduto) return false;
       if (state.marca !== "all" && item.marca !== state.marca) return false;
-      if (state.finalidades.size > 0 && !item.finalidades.some(f => state.finalidades.has(f))) return false;
       if (state.q) {
         const haystack = [item.nome, item.notas, ...item.finalidades].join(" ").toLowerCase();
         if (!haystack.includes(state.q)) return false;
       }
+      return true;
+    }
+
+    function matches(item) {
+      if (!matchesExceptFinalidade(item)) return false;
+      if (state.finalidades.size > 0 && !item.finalidades.some(f => state.finalidades.has(f))) return false;
       return true;
     }
 
@@ -1795,24 +1837,33 @@
       const options = Object.keys(STATUS_LABEL).map(k =>
         `<option value="${k}"${k === st ? " selected" : ""}>${STATUS_LABEL[k]}</option>`
       ).join("");
+      const media = item.img
+        ? `<img src="${item.img}" alt="${item.nome}" loading="lazy">`
+        : `<div class="card-media-placeholder">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+           </div>`;
       return `
         <article class="card${fav ? " favorito" : ""}" style="--accent:${accentVar}">
-          <div class="card-top">
-            <div class="card-name-row">
-              <button type="button" class="fav-btn${fav ? " active" : ""}" data-id="${item.id}" aria-pressed="${fav}" aria-label="Favoritar ${item.nome}">
-                <svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20.1l1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
-              </button>
-              <h3 class="card-name">${item.nome}</h3>
+          <div class="card-media">${media}</div>
+          <div class="card-content">
+            <div class="card-top">
+              <div class="card-name-row">
+                <button type="button" class="fav-btn${fav ? " active" : ""}" data-id="${item.id}" aria-pressed="${fav}" aria-label="Favoritar ${item.nome}">
+                  <svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20.1l1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+                </button>
+                <h3 class="card-name">${item.nome}</h3>
+              </div>
+              <select class="status-select status-${st}" data-id="${item.id}" aria-label="Status de ${item.nome}">${options}</select>
             </div>
-            <select class="status-select status-${st}" data-id="${item.id}" aria-label="Status de ${item.nome}">${options}</select>
+            <div class="meta-row">${meta}</div>
+            <div class="tag-row">${tags}</div>
+            <p class="card-notes">${item.notas}</p>
           </div>
-          <div class="meta-row">${meta}</div>
-          <div class="tag-row">${tags}</div>
-          <p class="card-notes">${item.notas}</p>
         </article>`;
     }
 
     function render() {
+      rebuildFinalidadeChips();
       const filtered = items.filter(matches).slice().sort((a, b) => {
         return (effectiveFavorito(b) ? 1 : 0) - (effectiveFavorito(a) ? 1 : 0);
       });
