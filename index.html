@@ -24,6 +24,8 @@
     --status-buy-soft: #DEEAF3;
     --status-no: #A6503D;
     --status-no-soft: #F3DCD3;
+    --status-give-up: #726B5E;
+    --status-give-up-soft: #E9E5DC;
     --accent-fav: #B08A1E;
     --accent-fav-soft: #F3E7C4;
     --shadow: 0 1px 2px rgba(42,37,30,0.06), 0 6px 20px -8px rgba(42,37,30,0.18);
@@ -51,6 +53,8 @@
       --status-buy-soft: #1E2E3B;
       --status-no: #E08A73;
       --status-no-soft: #3A231C;
+      --status-give-up: #C4BCAC;
+      --status-give-up-soft: #332F27;
       --accent-fav: #E0BB5E;
       --accent-fav-soft: #3A2F14;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 24px -10px rgba(0,0,0,0.5);
@@ -75,6 +79,8 @@
     --status-buy-soft: #1E2E3B;
     --status-no: #E08A73;
     --status-no-soft: #3A231C;
+    --status-give-up: #C4BCAC;
+    --status-give-up-soft: #332F27;
     --accent-fav: #E0BB5E;
     --accent-fav-soft: #3A2F14;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 24px -10px rgba(0,0,0,0.5);
@@ -499,6 +505,7 @@
   .status-aprovado{ background-color: var(--status-done-soft); color: var(--status-done); }
   .status-quero-comprar{ background-color: var(--status-buy-soft); color: var(--status-buy); }
   .status-nao-gostei{ background-color: var(--status-no-soft); color: var(--status-no); }
+  .status-desisti{ background-color: var(--status-give-up-soft); color: var(--status-give-up); }
 
   .status-quick{
     display: flex;
@@ -515,6 +522,9 @@
   }
   .status-quick .chip[data-value="aprovado"].active{
     background: var(--status-done-soft); color: var(--status-done); border-color: var(--status-done);
+  }
+  .status-quick .chip[data-value="desisti"].active{
+    background: var(--status-give-up-soft); color: var(--status-give-up); border-color: var(--status-give-up);
   }
 
   .meta-row{
@@ -818,6 +828,7 @@
         <button class="chip" data-value="nao-gostei">Não gostei</button>
         <button class="chip" data-value="quero-comprar">Quero comprar</button>
         <button class="chip" data-value="aprovado">Aprovado</button>
+        <button class="chip" data-value="desisti">Desisti</button>
       </div>
       <div class="filters-panel">
         <button type="button" class="filters-clear" hidden>Limpar filtros</button>
@@ -869,6 +880,7 @@
         <button class="chip" data-value="nao-gostei">Não gostei</button>
         <button class="chip" data-value="quero-comprar">Quero comprar</button>
         <button class="chip" data-value="aprovado">Aprovado</button>
+        <button class="chip" data-value="desisti">Desisti</button>
       </div>
       <div class="filters-panel">
         <button type="button" class="filters-clear" hidden>Limpar filtros</button>
@@ -2022,7 +2034,7 @@
   ];
 
   const ITEM_CATEGORIA_LABEL = { produto: "Produto", dica: "Dica", procedimento: "Procedimento" };
-  const STATUS_LABEL = { "nao-gostei": "Não gostei", "quero-comprar": "Quero comprar", aprovado: "Aprovado" };
+  const STATUS_LABEL = { "nao-gostei": "Não gostei", "quero-comprar": "Quero comprar", aprovado: "Aprovado", desisti: "Desisti" };
 
   // totals
   const totalsEl = document.getElementById("totals");
